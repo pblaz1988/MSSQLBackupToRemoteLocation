@@ -51,29 +51,29 @@
 # will fail
 
 	# MSSQL CONNECTION
-	MSSQL_BACKUPUSER=sa								# mssql user with backup permissions
-	MSSQL_BACKUPUSERPASS=pwd						# password
-	MSSQL_DATABASES2BACKUP=("amdb") 				# databases for backup - ignored when MSSQL_BACKUPALL > 0
+	MSSQL_BACKUPUSER=sa				# mssql user with backup permissions
+	MSSQL_BACKUPUSERPASS=pwd			# password
+	MSSQL_DATABASES2BACKUP=("amdb") 		# databases for backup - ignored when MSSQL_BACKUPALL > 0
 	MSSQL_DATABASES2IGNORE=("master", "tempdb") 	# ignored databases (only when MSSQL_BACKUPALL==1)
-	MSSQL_BACKUPALL=1 								# backup everything if != 0 - check link above
-	MSSQL_SYSTEM_USER=mssql 						# mssql process user
+	MSSQL_BACKUPALL=1 				# backup everything if != 0 - check link above
+	MSSQL_SYSTEM_USER=mssql 			# mssql process user
 
 	# SMB CONNECTION
-	SMB_USERNAME=shareusername						# smb share user with write permission
-	SMB_PASSWORD=sharepassword						# smb user password
-	SMB_SERVER=//server.domain/shareName			# server with exposed share
-	SMB_MOUNTPOINT=/mnt/mountpointForShare			# local mountpoint
-	SMB_IS_MOUNT_PERSISTENT=0						# if !=0: don't try to mount and unmount
+	SMB_USERNAME=shareusername			# smb share user with write permission
+	SMB_PASSWORD=sharepassword			# smb user password
+	SMB_SERVER=//server.domain/shareName		# server with exposed share
+	SMB_MOUNTPOINT=/mnt/mountpointForShare		# local mountpoint
+	SMB_IS_MOUNT_PERSISTENT=0			# if !=0: don't try to mount and unmount
 
 	# BACKUP POLICY, ==0 RETAINS FOREVER
-	EXPORT_RETENTION=7								# in days; if < 1, don't remove old backups
+	EXPORT_RETENTION=7				# in days; if < 1, don't remove old backups
 
 	# DIRECTORIES AND FILENAMES
-	DIR_MSSQLEXPORTS=/opt/mssql-dumps				# temporary backup directory (raw backups)
-													# ! don't put anything else in this directory !
-													# ! you can wreck your server !
-	DIR_SQLCMDBIN=/opt/mssql-tools/bin				# sqlcmd path - default set
-	BACKUPSTRING_PREFIX=$(hostname)					# backup prefix - default is hostname
+	DIR_MSSQLEXPORTS=/opt/mssql-dumps		# temporary backup directory (raw backups)
+							# ! don't put anything else in this directory !
+							# ! you can wreck your server !
+	DIR_SQLCMDBIN=/opt/mssql-tools/bin		# sqlcmd path - default set
+	BACKUPSTRING_PREFIX=$(hostname)			# backup prefix - default is hostname
 
 	# date and full path
 	CURRENT_UNIX_TIMESTAMP=$(`echo date +%Y%m%d%H%M%S`)		# don't touch this line
